@@ -1,0 +1,78 @@
+#====signup====
+#api call for admin registration
+###
+POST http://127.0.0.1:8000/course/register/
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "email": "admin@gmail.com",
+    "password": "admin@123"
+}
+#admin admin@123
+
+#api call for student rgistration
+###
+POST http://127.0.0.1:8000/course/register/user/
+Content-Type: application/json
+
+{
+    "username": "anu",
+    "email": "anu@gmail.com",
+    "password": "anu@123"
+}
+#anu anu@123
+
+
+#============course endpoints==================
+#api call for list all courses
+###
+GET  http://127.0.0.1:8000/course/all/
+Accept: application/json
+Authorization: Basic admin:admin@123 
+
+#api call for create course
+###
+POST http://127.0.0.1:8000/course/courses/create/
+Content-Type: application/json
+Authorization: Basic admin:admin@123 
+
+{
+    "title": "Cloud Computing",
+    "description": "Learn cloud computing fundamentals, cloud services, AWS basics, deployment and cloud infrastructure management.",
+    "duration": "3 months",
+    "trainer": "Vivek",
+    "language": "English",
+    "fees": "16000.00"
+}
+
+#api call for retrieve course
+###
+GET  http://127.0.0.1:8000/course/courses/4/
+Accept: application/json
+Authorization: Basic admin:admin@123 
+
+#api call for update specific course
+###
+PUT http://127.0.0.1:8000/course/courses/4/
+Content-Type: application/json
+Authorization: Basic admin:admin@123 
+ 
+{
+  "id": 4,
+  "title": "Web Development",
+  "description": "Learn HTML, CSS, JavaScript and responsive website development.",
+  "duration": "3 months",
+  "trainer": "Akhil",
+  "language": "English",
+  "fees": "12000.00",
+  "cover_picture": null,
+  "created_at": "2026-11-05T19:20:12.592502Z"
+}
+
+#api call for delete course
+###
+DELETE http://127.0.0.1:8000/course/courses/15/
+Content-Type: application/json
+Authorization: Basic admin:admin@123 
+ 
